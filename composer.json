@@ -1,0 +1,26 @@
+{
+  "name": "app/lowegrow",
+  "description": "LOW-CMS",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Bartosz Rozycki",
+      "email": "bartek.rozycki@icloud.com"
+    }
+  ],
+  "require": {
+    "nikic/fast-route": "v1.2.0",
+    "twig/twig": "1.6.5",
+    "illuminate/database": "v5.4.36",
+    "facebook/graph-sdk": "5.6.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Models\\": "app/models/",
+      "Controllers\\": "app/controllers/"
+    }
+  }
+}
+ 
