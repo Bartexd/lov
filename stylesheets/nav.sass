@@ -1,0 +1,79 @@
+@media all and (min-width: 1000px)
+  .not_mobile
+    display: inline-block
+    opacity: .5
+    max-height: 16px
+    margin-left: 5px
+    transform: translateY(3px)
+  .hassub
+    position: relative
+  .hassub > ul
+    position: absolute
+    top: 105%
+  .hassub > ul a
+    background-color: rgba(229, 166, 0, 0.8)
+    min-width: 240px
+    border-right: 1px solid black
+    margin-top: 1px
+    .not_mobile
+      transform: rotate(-90deg)  translateX(-4px)
+  .hassub > ul > .hassub
+    position: relative
+  .hassub > ul > .hassub > ul
+    position: absolute
+    top: 0%
+    right: -102%
+  .hassub > ul > .hassub > ul a
+    //
+  .navigation_mobile_button
+    display: none
+  .nav_button
+    display: none
+  .navigation
+
+    transition: all ease-in-out .3s
+    //position: fixed
+    top: 0
+    padding: 0 5%
+    width: 90%
+    display: block!important
+    background-color: rgba(229, 166, 0, 0.8)
+    font-family: 'Lato', sans-serif
+    .mobile
+      display: none
+    ul
+      margin: 0
+      padding: 0
+      display: flex
+      flex-flow: wrap
+      list-style: none
+      justify-content: flex-start
+      a
+        //margin-left: 2px
+        padding: 13px 30px
+        display: inline-block
+        border-left: 1px solid black
+        text-decoration: none
+        color: white
+        transition: background-color ease-in-out .2s
+      a:hover
+        background-color: rgba(0,0,0,0.6)
+      li:last-of-type
+        a
+          border-right: 1px solid black
+  .active > a
+    background-color: rgba(0,0,0,0.6)
+@media all and (min-width: 1080px)
+  .navigation
+    padding: 0
+    width: 100%
+    ul
+      justify-content: center
+@media all and (min-width: 1330px)
+  .navigation
+    ul
+      justify-content: center
+
+
+.hassub > *:not(img)
+  display: none

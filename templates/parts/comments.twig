@@ -1,0 +1,12 @@
+{% for com in comments %}
+
+    <article class="comment">
+        <img src="{{ com.author.picture }}" alt="">
+        <main>
+            <p>{{ com.author['first_name'] }} {{ com.author['last_name'] }}: {{ com.comment }}</p>
+            <time> {{ dh.convert(com.created_at) }}</time>
+        </main>
+
+    </article>
+
+{% endfor %}

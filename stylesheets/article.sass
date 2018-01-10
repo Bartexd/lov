@@ -1,0 +1,106 @@
+.article,.article-news
+  //border-bottom: 1px solid #ddd
+  padding: 1em 0
+  .thumb
+    float: left
+    //border: 1px solid #9a9a9a
+    padding: 0.1em
+    margin: .5em .5em 0
+    display: flex
+    align-items: center
+    justify-content: center
+    &:after
+      content: ""
+      visibility: hidden
+      display: block
+      height: 0
+      clear: both
+    img
+      flex: 1 100%
+      max-height: 130px
+      max-width: 230px
+  .gallery
+    display: none
+  .main
+    header
+      h3,h5
+        margin: 0
+        a
+          transition: all ease-in-out .2s
+        a:-webkit-any-link
+          color: black
+        a:hover
+          font-size: 1.03em
+      time
+        color: #444
+        font-size: 0.8em!important
+    p
+      text-align: justify
+      text-indent: 0.6em
+      max-width: 1000px
+
+.comments_new
+  .alert
+    //border: 1px solid darkred
+    //background: indianred
+    color: red
+    padding: .5em
+  //border-radius: 5em
+  #comment
+    width: 250px
+    height: 33px
+    border-radius: 3em
+    outline: none
+    z-index: 1
+    padding: 5px 5px 5px 8px
+.comments
+  margin-left: .5em
+  .comment
+    width: initial
+    margin-top: 0.3em
+    display: flex
+    border-bottom: 1px solid #ddd
+    img
+      height: 65px
+      border-radius: 50%
+    main
+      time
+        margin-left: 1em
+        color: #9295aa
+      p
+        margin-left: .5em
+#btn_load_more
+  background: #f1f1f1
+  width: 100%
+  margin: 0.3em 1em
+  padding: 0.3em
+  border: none
+  font-family: 'Raleway', sans-serif
+  font-weight: 400
+  &:focus
+    outline: none
+  &:hover
+    cursor: pointer
+
+@media all and (min-width: 900px)
+  .thumb
+    a
+      img
+        width: 100%
+        height: auto
+        transform: scale(0.95)
+        transition: transform ease-in-out .2s
+      img:hover
+        transform: scale(1)
+
+@media all and (min-width: 1600px)
+  .article-news
+    .main
+      flex-direction: row
+      .content
+        flex: 2
+        order: 2
+        padding-right: 1em
+      .thumb
+        flex: 1
+        order: 1

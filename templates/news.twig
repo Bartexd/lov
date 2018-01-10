@@ -1,0 +1,102 @@
+{% extends "layouts/low_template.twig" %}
+{%- block section_header %}
+    <h2 class="content-main-header rm-m-b"> {{ news.title }} </h2>
+{%- endblock %}
+
+{% block breadcrumbs %}
+    <li><a href="{{ url }}/">Aktualności</a></li>
+    <li><a href="{{ url }}/news/{{ news.news_id }}">{{ news.title|replace({" ":"-"}) }}</a></li>
+{% endblock %}
+{%- block articles %}
+
+    <article class="article-news rm-m-t">
+
+
+        <section class="main">
+            {% if news.hasGallery() -%}
+                <figure class="thumb">
+                    {%- set dynamic_gallery_data = random() -%}
+
+                    <a href="{{ news.gallery['thumb_url'] }}" data-lightbox="{{ dynamic_gallery_data }}">
+                        <img src="{{ news.gallery['thumb_url'] }}" alt="obrazek"></a>
+
+                </figure>
+                <figure class="gallery">
+                    {% if news.hasCreatedGallery() -%}
+
+                        {% for photo in news.gallery.photos -%}
+
+                            <a href="{{ photo.photo_url }}" data-lightbox="{{ dynamic_gallery_data }}">
+                                <img src="{{ photo.photo_url }}" alt="obrazek"></a>
+
+                        {% endfor -%}
+
+                    {%- else -%}
+
+                        <h2>Nie odnaleziono galeri dla postu o id {{ news.news_id }}</h2>
+
+                    {%- endif -%}
+                </figure>
+            {%- endif %}
+            <section class="content">
+
+                {% if news['content-long']|length < 1 %}
+                    {{ news['content-short']|raw -}}
+                {% else %}
+                    {{ news['content-long']|raw -}}
+                {% endif %}
+
+            </section>
+        </section>
+        <h2>Komentarze</h2>
+        <section class="comments_new">
+            {% if logged == 1 %}
+                {#<img src="{{ user.picture }}" alt="">#}
+                <form action="/add-comment" method="post">
+                    <input type="hidden" name="post_id" value="{{ news.news_id }}">
+                    <input name="comment" placeholder="Napisz komentarz..." id="comment" maxlength="255" required>
+
+                    {#<button id="comment_submit" type="hidden">Dodaj</button>#}
+                </form>
+            {% else %}
+                Nie jesteś zalogowany ... <a href="/login">Zaloguj się</a>
+            {% endif %}
+
+            {% if status == 1 %}
+                <div class="alert">Podczas dodawania komentarza wystapił błąd, spróbuj ponownie !</div>
+            {% endif %}
+        </section>
+        <section id="comments" class="comments">
+
+            <script>
+                var comments_loaded = 3;
+                var comment_to_load = 3;
+                function getComm(load, skip) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState === 4 && this.status === 200) {
+                            if (empty(this.responseText))
+                            {
+                                document.getElementById("btn_load_more").style.display = "none";
+                            }
+                            document.getElementById("comments").innerHTML =
+                                document.getElementById("comments").innerHTML + this.responseText;
+                            comments_loaded += load;
+                        }
+                    };
+                    xhttp.open("GET", "{{ url }}/comments/{{ news.news_id }}/" + load + "/" + skip, true);
+                    xhttp.send();
+                }
+
+                getComm(3, 0);
+            </script>
+
+        </section>
+        <button id="btn_load_more" onclick="getComm(comment_to_load, comments_loaded - comment_to_load)">Zaladuj więcej komentarzy</button>
+
+
+    </article>
+
+
+{%- endblock %}
+{% block paginate %}<br>{% endblock %}

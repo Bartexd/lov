@@ -1,0 +1,21 @@
+{% extends "layouts/low_template.twig" %}
+{%- block section_header %}
+<h2 class="content-main-header rm-m-b"> {{ site.site_title }} </h2>
+{%- endblock %}
+
+{% block breadcrumbs %}
+<li><a href="{{ url }}/{{ site.route_name }}">{{ site.site_title }}</a></li>
+{% endblock %}
+
+
+{%- block articles %}
+
+    <section class="site">
+
+        {{ site.site_content|raw }}
+
+    </section>
+
+{%- endblock %}
+
+{% block paginate %}{% endblock %}

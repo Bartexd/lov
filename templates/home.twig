@@ -1,0 +1,78 @@
+{% extends "layouts/low_template.twig" %}
+{%- block section_header %}
+    <h2 class="content-main-header rm-m-t rm-m-b">Aktualności</h2>
+{%- endblock %}
+
+{%- block articles %}
+
+    {% for post in news -%}
+
+        <article class="article">
+            {%- set dynamic_gallery_data = random() -%}
+        {% if post.gallery['thumb_url']|length > 5 %}
+            <figure class="thumb">
+
+                    <a data-lightbox="{{ dynamic_gallery_data }}" href="{{ post.gallery['thumb_url'] }}"><img
+                                src="{{ post.gallery['thumb_url'] }}" alt="obrazek"></a>
+
+            </figure>
+        {% endif %}
+            <section class="main">
+                <header>
+
+
+                    <h3><a href="{{ url }}/news/{{ post.news_id }}">{{ post.title }}</a></h3>
+                    <h5>
+                        <time>{{ dh.convert(post.created_at) }}</time>
+                    </h5>
+                </header>
+
+                {{ post['content-short']|raw }}
+
+            </section>
+            <figure class="gallery">
+
+                {% if post.hasCreatedGallery() -%}
+
+                    {% for photo in post.gallery.photos -%}
+
+                        <a href="{{ photo.photo_url }}" data-lightbox="{{ dynamic_gallery_data }}">
+                            <img src="{{ photo.photo_url }}" alt="obrazek">
+                        </a>
+
+                    {% endfor -%}
+
+                {%- else -%}
+
+                    <h2>Nie odnaleziono galeri dla postu o id {{ post.news_id }}</h2>
+
+                {%- endif -%}
+            </figure>
+        </article>
+
+    {% endfor %}
+
+{%- endblock %}
+{% block paginate %}
+
+    <ul class="paginate">
+        {%- if current_page > 1 %}
+            <li><a href="{{ url }}/p/{{ current_page-1 }}">«</a></li>
+        {%- endif %}
+
+        {% for i in range(current_page-4, current_page+4) %}
+            {%- if i >= 1 and i <= how_many_pages %}
+                {%- if i == current_page %}
+                    <li><a class="current" href="{{ url }}/p/{{ i }}">{{ i }}</a></li>
+                {%- else %}
+                    <li><a href="{{ url }}/p/{{ i }}">{{ i }}</a></li>
+                {%- endif %}
+            {%- endif %}
+        {% endfor %}
+
+        {%- if current_page < how_many_pages %}
+            <li><a href="{{ url }}/p/{{ current_page+1 }}">»</a></li>
+        {%- endif %}
+    </ul>
+
+{% endblock %}

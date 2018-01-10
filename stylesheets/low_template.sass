@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Raleway:100,400&subset=latin-ext')
+
+.rm-m-b
+  margin-bottom: 0 !important
+
+*
+  font-family: 'Lato', Helvetica Neue, Arial, Sans-serif, serif
+
+body
+  margin: 0
+  padding: 0
+
+.menu_container *
+  z-index: 100 !important
+
+.head-micek-img
+  display: none
+
+.head-img
+  display: inline-block
+  width: 95%
+
+#wrapper
+  max-width: 1920px
+  margin-left: auto
+  margin-right: auto
+  padding-top: 5vh
+  padding-left: 4vw
+  padding-right: 4vw
+  display: flex
+  flex-direction: column
+  align-items: center
+  > *
+    flex-basis: auto
+  hr.break
+    border-color: #cdcdcd
+    width: 100%
+    margin: 2px 0
+  .breadcrumbs
+    width: 95%
+    margin: 2% 2.5%
+    align-self: flex-start
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    .fonterro
+      margin-right: 0
+      margin-left: auto
+      #font-plus, #font-minus
+        background: transparent
+        border: none
+        font-weight: 600
+        &:focus, &focus
+          outline: none
+        &:hover, &hover
+          cursor: pointer
+          color: deepskyblue
+    ul
+      display: none
+      padding: 0
+      margin: 0
+      list-style: none
+      li:last-of-type
+        a::after
+          content: ""
+      li
+        a::after
+          content: ">"
+          color: black
+          margin: 0 5px
+        a
+          font-size: 0.8em
+          color: rgb(180, 132, 0)
+          text-decoration: none
+        a:visited
+          color: rgb(180, 132, 0)
+
+  .container
+    width: 95%
+    margin: 0 2.5%
+    .articles
+      display: flex
+      flex-direction: column
+    .right-info
+      display: none
+
+.paginate
+  display: flex
+  justify-content: center
+  li
+    display: inline-block
+    a
+      padding: 8px 16px
+    a.current
+      background-color: #4CAF50
+      color: white
+    //a:hover:not(.current)
+      //background-color: rgba(24, 238, 0, 0.42)
+    a:-webkit-any-link
+      color: black
+      cursor: pointer
+      text-decoration: none
+
+.pagefoot
+  width: 100%
+  .somes
+    overflow-x: scroll
+    background-color: rgba(0, 0, 0, 0.05)
+    margin-left: auto
+    margin-right: auto
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    > *
+      padding: 0.3em 1em
+  > *
+    min-height: 100px
+  .foot
+    background-color: #0f0f0f
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    p
+      color: #c6c6c6
+      font-size: 0.8em
+      text-align: center
+
+    img
+      max-height: 180px
+      transform: scale(0.569)
+      display: none
+  .floor
+    background-color: black
+    display: flex
+    justify-content: center
+    align-items: center
+    p
+      color: #aaaaaa
+      text-align: center
+
+  .container
+    width: 95%
+    margin: 0 2.5%
+    display: flex
+
+@media all and (min-width: 800px)
+  .breadcrumbs
+    ul
+      display: flex !important
+  #wrapper
+    .container, .breadcrumbs
+      width: 80%
+      margin: 0.5% 10%
+  .foot
+    img
+      display: block !important
+    p
+      text-align: justify !important
+  .head-img
+    width: auto
+
+@media all and (min-width: 1080px)
+  #wrapper
+    .container
+      display: flex
+      flex-direction: row
+      box-sizing: border-box
+      .right-info
+        display: flex !important
+        flex-direction: column
+        align-items: center
+        margin-left: 2vw
+        padding-top: 70px
+        flex: 1 0
+        box-sizing: border-box
+        width: 100%
+        .slider
+          width: 300px
+          height: 200px
+          overflow: hidden
+          box-shadow: -1px 1px 5px 1px rgba(0, 0, 0, 0.28)
+          border-radius: 20px 20px 20px 0
+          div
+            height: inherit
+            display: flex
+            flex-direction: row
+            //justify-content: center
+            align-items: center
+            div
+              width: 300px
+              position: relative
+              h3
+                color: black
+                font-size: 1.2em
+                font-weight: 200
+                position: absolute
+                bottom: 0
+                margin: 0
+                padding: 3px 8px
+                width: 100%
+                background-color: rgba(255, 244, 196, 0.9)
+              img
+                width: 300px
+                height: 200px
+
+              img:hover
+                cursor: pointer
+      .articles
+        flex: 4 0
+  .head-micek-img
+    display: inline-block

@@ -1,0 +1,80 @@
+@media all and (max-width: 999px)
+  .not_mobile
+    display: none!important
+  .hassub > ul a
+    padding-left: 4em!important
+  .hassub > ul > .hassub > ul a
+    padding-left: 7em!important
+  .menu_container
+    position: fixed
+    width: 100%
+    font-family: Raleway, 'sans-serif'
+    .navigation
+      position: static
+      img
+        display: inline-block
+        opacity: .5
+        max-height: 19px
+        margin-right: 3px
+        margin-left: -22px
+      display: none
+      margin-top: 15px
+      margin-left: 8px
+      margin-right: 8px
+      ul
+        list-style: none
+        padding: 0
+        margin: 0
+        a
+          display: flex
+          flex-direction: row
+          width: 100%
+          padding: 1em 0 1em 2em
+          background-color: rgba(0, 0, 0, 0.85)
+          border-bottom: 1px solid rgba(0, 0, 0, 0.5)
+          text-decoration: none
+          color: white
+          transition: ease-in-out background .1s
+        a:hover
+          background-color: rgba(0,0,0,0.8)
+.navigation_mobile_button
+  display: flex
+  justify-content: flex-end // FLEX-END / FLEX-START( line 44)
+  height: 45px !important
+  //margin-left: 30px IF LEFT (FLEX-START)
+
+.hamburger
+  width: 40px
+  height: 30px
+  border: 0
+  border-top: 5px solid #000
+  background: transparent
+  position: relative
+  transition: 0.3s transform linear
+  right: 15px
+  top: 15px
+  &:hover
+    cursor: pointer
+
+.hamburger::before, .hamburger::after
+  content: ''
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  border-top: 5px solid #000
+  transform: translateY(5px)
+
+.hamburger::after
+  transform: translateY(15px)
+  transition: 0.3s transform linear
+
+.hamburger:focus
+  outline: none
+
+.active.hamburger
+  transform: rotate(45deg) translateY(5px)
+  border: none
+
+.active.hamburger::after
+  transform: rotate(-90deg) translateX(-6px)

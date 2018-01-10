@@ -1,0 +1,172 @@
+{% spaceless %}
+    <html lang="PL_pl">
+
+    <head>
+
+        <link rel="stylesheet" href="{{ asset }}/css/low_template.css">
+        <link rel="stylesheet" href="{{ asset }}/css/article.css">
+
+        <title> I Liceum Ogólnokształcące im. Adama Mickiewicza w Węgrowie</title>
+
+        <link rel="stylesheet"
+              href="{{ asset }}/css/mobile_nav.css"> {#Mobile always FIRST!!!!!!!!!!!!!!!!!!!!!!!!! :D#}
+        <link rel="stylesheet" href="{{ asset }}/css/nav.css">
+
+        <link rel="stylesheet" href="{{ asset }}/css/comments.css">
+
+        <link rel="stylesheet" href="{{ asset }}/css/lightbox.min.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+
+    <body>
+    <div class="menu_container">
+
+        <div class="navigation_mobile_button">
+            <button class="hamburger"></button>
+        </div>
+
+        {% include 'menu.twig' %}
+    </div>
+
+
+    <section id="wrapper">
+
+        <a href="{{ url }}">
+            <header class="pagehead">
+                <img class="head-micek-img" src="{{ asset }}/images/mickiewicz-logo-small_1.png" alt="">
+                <img class="head-img" src="{{ asset }}/images/head-ilo.png" alt="">
+            </header>
+        </a>
+        {#<hr class="break"/>#}
+        <header class="breadcrumbs">
+            <ul>
+                <li><a href="{{ url }}">Strona Główna</a></li>
+                {% block breadcrumbs %}
+                {% endblock %}
+            </ul>
+            <div class="fonterro">
+                <button id="font-minus">a-</button>
+                /
+                <button id="font-plus">A+</button>
+            </div>
+        </header>
+
+
+        <section class="container">
+
+            <section class="articles">
+
+                {% block section_header %}<h2>AKTUALNOŚCI</h2>{% endblock %}
+
+                {% block articles %}{% endblock %}
+
+                {% block paginate %}{% endblock %}
+            </section>
+
+            <section class="right-info">
+
+
+                <a href="http://lowegrow.aplus.pl/zjazd/index.php"><img
+                            src="http://lowegrow.aplus.pl/grafika/2017/100lat.png"></a>
+                <hr>
+                <a href="index2.php?id=apel" style="text-decoration: none">
+                    <div style="margin-top: 0; margin-bottom: 0; margin-right:0; font-weight:bold; font-family:Arial, Helvetica, sans-serif; color:#235797; text-align:center;font-size:12px; padding-top:0">
+                        APEL DO ABSOLWENTÓW<br>ILO W WĘGROWIE
+                    </div>
+                </a>
+                <hr>
+                <a href="http://lowegrow.aplus.pl/download/2017/zadania_grudzien.docx"><h3>Konkurs 100 zadań <br>na
+                        100-lecie Mickiewicza</h3></a>
+                <hr>
+
+                <a href="http://www.smoluchowski.uj.edu.pl/documents/110885257/136617375/Uchwa%C5%82a_Senatu_RP.pdf/f8fdfdf8-6566-4eab-8e9c-4eec0b7348f3">
+                    <img src="http://lowegrow.aplus.pl/grafika/2017/smol.jpg"></a>
+                <hr>
+
+                <img src="http://lowegrow.aplus.pl/grafika/logo1_1.png"></a>
+                <hr>
+                <a href="http://lowegrow.aplus.pl/download/2017/rokConrada.zip"><h3> Rok <br>Josepha Conrada<br>Zapraszamy
+                        do udziału<br> w konkursach</h3></a>
+                <hr>
+                <iframe width="170" height="105" src="https://www.youtube.com/embed/yrZLhCTvb3U" frameborder="0"
+                        gesture="media" allowfullscreen></iframe>
+                <hr>
+                <iframe width="170" height="105" src="https://www.youtube.com/embed/rJMvUXcR_kc" frameborder="0"
+                        gesture="media" allowfullscreen></iframe>
+                <hr>
+
+                <a href="index2.php?id=uniasport"><img
+                            src="http://lowegrow.aplus.pl/grafika/2017/uniasport.jpg"></a>
+                <hr>
+                <img src="http://lowegrow.aplus.pl/grafika/projektzklasa.png">
+
+
+            </section>
+
+
+        </section>
+
+    </section>
+
+    <footer class="pagefoot">
+        {#<section class="somes">#}
+            {#<a href="http://lowegrow.aplus.pl/bip"><img src="http://lowegrow.aplus.pl/bip.png" width="152"></a>#}
+
+            {#<span><a href="index2.php?id=pro_familia"><img#}
+                            {#src="http://lowegrow.aplus.pl/grafika/logo_pro.png"/></a></span>#}
+            {#<span><a target="_blank" href="http://www.lowegrow.aplus.pl/basik/"><img alt="fundacja"#}
+                                                                                     {#src="http://lowegrow.aplus.pl/basik.png"#}
+                                                                                     {#id="basik"/></a></span>#}
+            {#<a target="_blank" href="http://www.ogolniak.wegrow.pl"><img alt="ogolimg"#}
+                                                                         {#src="http://lowegrow.aplus.pl/index_pliki/loga/stowarzyszenie.gif"#}
+                                                                         {#id="ogolniakimg"/></a></span><br/>#}
+            {#<a href="https://wns.uph.edu.pl/"><img#}
+                        {#src="http://lowegrow.aplus.pl/grafika/wns.png"></a>#}
+            {#<span><a target="_blank"#}
+                     {#href="http://szkolazklasa.gazeta.pl/szkolazklasa/2,58422,,,,-707093,P_SZKOLA_Z_KLASA.html"><img#}
+                            {#alt="szkzlaimg" id="szkzklaimg"#}
+                            {#src="http://lowegrow.aplus.pl/index_pliki/loga/szkola_z_klasa.gif"/></a></span><br/>#}
+            {#<span><a target="_blank" href="http://www.pajacyk.pl"><img alt="pajimg"#}
+                                                                       {#src="http://lowegrow.aplus.pl/index_pliki/loga/pajacyk.gif"/></a></span><br/>#}
+
+        {#</section>#}
+        <section class="foot">
+            <p>I Liceum Ogólnokształcące im. Adama Mickiewicza w Węgrowie <br/>
+                ul. Adama Mickiewicza 3 <br/>
+                07-100 Węgrów <br/>
+                tel./fax:(0 25) 792 44 24 <br/>
+                e-mail: lo_weg@poczta.onet.pl</p>
+            <img src="{{ asset }}/images/head-ilo-transparent.png"
+                 alt="I Liceum Ogólnokształcące im. Adama Mickiewicza w Węgrowie">
+        </section>
+        <section class="floor">
+            <p>ILOVENGINE <BR/>(C) 2017 - 2018</p>
+        </section>
+
+    </footer>
+
+    </body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{ asset }}/js/lightbox.min.js"></script>
+    <script src="{{ asset }}/js/fontsizer.js"></script>
+    <script src="{{ asset }}/js/menu.js"></script>
+    <script src="{{ asset }}/js/gallery.js"></script>
+
+    <script>
+        lightbox.option({
+            'alwaysShowNavOnTouchDevices': true,
+            'albumLabel': 'Zdjęcie %1 z %2'
+        })
+    </script>
+
+    </html>
+
+
+
+
+
+
+{% endspaceless %}
