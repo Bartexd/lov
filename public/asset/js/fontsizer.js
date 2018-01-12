@@ -49,23 +49,23 @@ var x = readCookie("font-size");
 if (empty(x)) x = 0;
 createCookie("font-size", x, 366);
 
-$("*").css("font-size", 100+(x * 1) + "%");
+$("body").css("font-size", 16+(x * 1) + "px");
 
 $("#font-plus").on("click", function(){
-    var fs = $("*").css("font-size");
+    var fs = $("body").css("font-size");
     x++;
     if (x <= 3) {
-        if (x === 0) $("*").css("font-size", "100%");
-        else $("*").css("font-size", 100+(x) + "%");
+        if (x === 0) $("body").css("font-size", "16px");
+        else $("body").css("font-size", 16+(x) + "px");
     }else x--;
     createCookie("font-size", x, 366)
 });
 $("#font-minus").on("click", function(){
-    var fs = $("*").css("font-size");
+    var fs = $("body").css("font-size");
     x--;
     if (x >= -3) {
-        if (x === 0) $("*").css("font-size", "100%");
-        else $("*").css("font-size", 100+(x) + "%");
+        if (x === 0) $("body").css("font-size", "16px");
+        else $("body").css("font-size", 16+(x) + "px");
     }else x++
     createCookie("font-size", x, 366)
 });

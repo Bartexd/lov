@@ -9,14 +9,7 @@
 
         <article class="article">
             {%- set dynamic_gallery_data = random() -%}
-        {% if post.gallery['thumb_url']|length > 5 %}
-            <figure class="thumb">
 
-                    <a data-lightbox="{{ dynamic_gallery_data }}" href="{{ post.gallery['thumb_url'] }}"><img
-                                src="{{ post.gallery['thumb_url'] }}" alt="obrazek"></a>
-
-            </figure>
-        {% endif %}
             <section class="main">
                 <header>
 
@@ -26,6 +19,14 @@
                         <time>{{ dh.convert(post.created_at) }}</time>
                     </h5>
                 </header>
+                {% if post.gallery['thumb_url']|length > 5 %}
+                    <figure class="thumb">
+
+                        <a data-lightbox="{{ dynamic_gallery_data }}" href="{{ post.gallery['thumb_url'] }}"><img
+                                    src="{{ post.gallery['thumb_url'] }}" alt="obrazek"></a>
+
+                    </figure>
+                {% endif %}
 
                 {{ post['content-short']|raw }}
 

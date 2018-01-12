@@ -5,8 +5,6 @@ namespace App;
 use FastRoute\RouteCollector;
 use function FastRoute\simpleDispatcher;
 use FastRoute\Dispatcher;
-use Models\Controllers\News;
-use Models\Gallery;
 
 
 class App
@@ -30,7 +28,6 @@ class App
                                                  ]);
 
         new Database();
-
 
 
         $this->runRouter();

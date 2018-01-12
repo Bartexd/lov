@@ -43,6 +43,7 @@
                 {% if news['content-long']|length < 1 %}
                     {{ news['content-short']|raw -}}
                 {% else %}
+                    {{ news['content-short']|raw -}}
                     {{ news['content-long']|raw -}}
                 {% endif %}
 
